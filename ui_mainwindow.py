@@ -18,8 +18,34 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
     QLineEdit, QPushButton, QSizePolicy, QTextBrowser,
     QWidget)
+import calc_functions
+from datetime import date
 
 class Ui_window(object):
+    def _calculate(self):
+        '''
+        Using the provided inputs, calculate the option price.
+        '''
+        S = float(self.in_assetprice.text().strip())
+        K = float(self.in_strikeprice.text().strip())
+        r = float(self.in_strikeprice.text().strip()) / 100
+        sigma = float(self.in_std.text().strip())
+        M = int(self.in_pricestep.text().strip())
+        N = int(self.in_timestep.text().strip())
+        
+        input_date = self.in_maturitydate.date().toPython()
+        current_date = date.today()
+        T = (input_date - current_date).days / 365
+
+        return calc_functions.eurcall_explicit(S, K, r, sigma, T, M, N)
+
+    def _displayresult(self):
+        '''
+        Display the option price after calculation.
+        '''
+        opPrice = self._calculate()
+        self.output.setText(f"<center><b><font color='blue' size='20'>{opPrice}</font></b></center>")
+
     def setupUi(self, window):
         if not window.objectName():
             window.setObjectName(u"window")
@@ -90,6 +116,10 @@ class Ui_window(object):
         self.retranslateUi(window)
 
         QMetaObject.connectSlotsByName(window)
+
+        # calculate and display result
+        self.but_calculate.clicked.connect(self._displayresult)
+        
     # setupUi
 
     def retranslateUi(self, window):
