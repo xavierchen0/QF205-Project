@@ -28,11 +28,11 @@ class Ui_window(object):
         '''
         S = float(self.in_assetprice.text().strip())
         K = float(self.in_strikeprice.text().strip())
-        r = float(self.in_strikeprice.text().strip()) / 100
+        r = float(self.in_interestrate.text().strip()) / 100
         sigma = float(self.in_std.text().strip())
         M = int(self.in_pricestep.text().strip())
         N = int(self.in_timestep.text().strip())
-        
+
         input_date = self.in_maturitydate.date().toPython()
         current_date = date.today()
         T = (input_date - current_date).days / 365
