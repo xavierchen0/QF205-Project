@@ -5,7 +5,7 @@ def eurcall_explicit(S: float, K: float, r: float, sigma: float, T: float, M: in
     '''
     S: current price of underlying asset,
     K: strike price of option,
-    r: risk-free interest rate in decimal form,
+    r: annual risk-free interest rate in decimal form,
     sigma: standard deviation of underlying asset in decimal form,
     T: time to maturity in years,
     M: number of price steps,
