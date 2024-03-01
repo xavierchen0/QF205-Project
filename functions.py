@@ -12,7 +12,7 @@ def eurcall_explicit(S: float, K: float, r: float, sigma: float, T: float, M: in
     N: number of time steps.
 
     Assumptions:
-    1. S < 2 * K
+    1. S_max < 2 * K
     2. Underlying asset does not pay dividends
     '''
     # Step 1: Calculate the time step, dt, and the price step, ds.
