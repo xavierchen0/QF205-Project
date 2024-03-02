@@ -36,8 +36,11 @@ class Ui_window(object):
         input_date = self.in_maturitydate.date().toPython()
         current_date = date.today()
         T = (input_date - current_date).days / 365
-
-        return calc_functions.eurcall_explicit(S, K, r, sigma, T, M, N)
+        
+        if self.in_option_type.currentText() == 'Call':
+            return calc_functions.eurcall_explicit(S, K, r, sigma, T, M, N)
+        elif self.in_option_type.currentText() == 'Put':
+            return calc_functions.eurput_explicit(S, K, r, sigma, T, M, N)
 
     def _displayresult(self):
         '''
