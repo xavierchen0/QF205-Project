@@ -10,11 +10,11 @@
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
+    QSize, QTime, QUrl, Qt, QRegularExpression)
 from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+    QPalette, QPixmap, QRadialGradient, QTransform, QRegularExpressionValidator)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDialog,
     QLineEdit, QPushButton, QSizePolicy, QTextBrowser,
     QWidget)
@@ -54,6 +54,11 @@ class Ui_window(object):
             window.setObjectName(u"window")
         window.setEnabled(True)
         window.resize(600, 600)
+
+        # set input validation
+        regex = QRegularExpression('^[0-9]*\.?[0-9]*$')
+        validator = QRegularExpressionValidator(regex)
+
         self.introduction = QTextBrowser(window)
         self.introduction.setObjectName(u"introduction")
         self.introduction.setGeometry(QRect(10, 10, 580, 80))
@@ -90,21 +95,27 @@ class Ui_window(object):
         self.in_assetprice = QLineEdit(window)
         self.in_assetprice.setObjectName(u"in_assetprice")
         self.in_assetprice.setGeometry(QRect(315, 140, 275, 30))
+        self.in_assetprice.setValidator(validator)
         self.in_strikeprice = QLineEdit(window)
         self.in_strikeprice.setObjectName(u"in_strikeprice")
         self.in_strikeprice.setGeometry(QRect(315, 180, 275, 30))
+        self.in_strikeprice.setValidator(validator)
         self.in_interestrate = QLineEdit(window)
         self.in_interestrate.setObjectName(u"in_interestrate")
         self.in_interestrate.setGeometry(QRect(315, 220, 275, 30))
+        self.in_interestrate.setValidator(validator)
         self.in_std = QLineEdit(window)
         self.in_std.setObjectName(u"in_std")
         self.in_std.setGeometry(QRect(315, 260, 275, 30))
+        self.in_std.setValidator(validator)
         self.in_pricestep = QLineEdit(window)
         self.in_pricestep.setObjectName(u"in_pricestep")
         self.in_pricestep.setGeometry(QRect(315, 340, 275, 30))
+        self.in_pricestep.setValidator(validator)
         self.in_timestep = QLineEdit(window)
         self.in_timestep.setObjectName(u"in_timestep")
         self.in_timestep.setGeometry(QRect(315, 380, 275, 30))
+        self.in_timestep.setValidator(validator)
         self.in_maturitydate = QDateEdit(window)
         self.in_maturitydate.setObjectName(u"in_maturitydate")
         self.in_maturitydate.setGeometry(QRect(315, 300, 275, 30))
