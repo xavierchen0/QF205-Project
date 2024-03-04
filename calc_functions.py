@@ -80,7 +80,7 @@ def eurput_explicit(S: float, K: float, r: float, sigma: float, T: float, M: int
     option_prices = np.zeros((M+1, N+1))
 
     # Step 2b: Update the option prices at time T.
-    option_prices[:, N] = np.maximum(np.arange(0, M+1) * ds - K, 0)
+    option_prices[:, N] = np.maximum(K - np.arange(0, M+1) * ds, 0)
 
     # Step 3: Compute option price at time i and at asset price S_j where S_j = j * ds
     for i in range(N-1, -1, -1):
