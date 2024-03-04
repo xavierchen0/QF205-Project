@@ -160,7 +160,7 @@ class Ui_window(object):
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This options calculator approximates the fair price of an American/European Option using the <span style=\" font-weight:600;\">Explicit Finite Difference</span> method to solve Black-Scholes Partial Differential Equation.</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">* Assumes Maximum Price of Asset &lt; 2 * Option's Strike Price</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margi"
-                        "n-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">** Assumes Asset does not pay dividends</span></p></body></html>", None))
+                        "n-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">** Assumes Asset does not pay Dividends</span></p></body></html>", None))
         self.text_option_type.setHtml(QCoreApplication.translate("window", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
