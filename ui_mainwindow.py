@@ -56,7 +56,7 @@ class Ui_window(object):
         window.resize(600, 600)
 
         # set input validation
-        regex = QRegularExpression('^[0-9]*\.?[0-9]*$')
+        regex = QRegularExpression(r'^[0-9]*\.?[0-9]*$')
         validator = QRegularExpressionValidator(regex)
 
         self.introduction = QTextBrowser(window)
