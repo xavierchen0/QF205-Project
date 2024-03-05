@@ -41,10 +41,6 @@ class Ui_window(object):
             return calc_functions.eurcall_explicit(S, K, r, sigma, T, M, N)
         elif self.in_option_type.currentText() == 'European Put':
             return calc_functions.eurput_explicit(S, K, r, sigma, T, M, N)
-        elif self.in_option_type.currentText() == 'American Call':
-            return calc_functions.amrcall_explicit(S, K, r, sigma, T, M, N)
-        elif self.in_option_type.currentText() == 'American Put':
-            return calc_functions.amrput_explicit(S, K, r, sigma, T, M, N)
 
     def _displayresult(self):
         '''
@@ -92,8 +88,6 @@ class Ui_window(object):
         self.text_time_step.setGeometry(QRect(10, 380, 275, 30))
         self.text_time_step.setAutoFillBackground(False)
         self.in_option_type = QComboBox(window)
-        self.in_option_type.addItem("")
-        self.in_option_type.addItem("")
         self.in_option_type.addItem("")
         self.in_option_type.addItem("")
         self.in_option_type.setObjectName(u"in_option_type")
@@ -157,7 +151,7 @@ class Ui_window(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:9.75pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This options calculator approximates the fair price of an American/European Option using the <span style=\" font-weight:600;\">Explicit Finite Difference</span> method to solve Black-Scholes Partial Differential Equation.</p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This options calculator approximates the fair price of an European Option using the <span style=\" font-weight:600;\">Explicit Finite Difference</span> method to solve Black-Scholes Partial Differential Equation.</p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">* Assumes Maximum Price of Asset &lt; 2 * Option's Strike Price</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margi"
                         "n-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">** Assumes Asset does not pay Dividends</span></p></body></html>", None))
@@ -201,10 +195,8 @@ class Ui_window(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:9.75pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Number of Time Steps</span></p></body></html>", None))
-        self.in_option_type.setItemText(0, QCoreApplication.translate("window", u"European Call", None))
-        self.in_option_type.setItemText(1, QCoreApplication.translate("window", u"European Put", None))
-        self.in_option_type.setItemText(2, QCoreApplication.translate("window", u"American Call", None))
-        self.in_option_type.setItemText(3, QCoreApplication.translate("window", u"American Put", None))
+        self.in_option_type.setItemText(0, QCoreApplication.translate("window", u"Call", None))
+        self.in_option_type.setItemText(1, QCoreApplication.translate("window", u"Put", None))
 
         self.in_assetprice.setInputMask("")
         self.in_assetprice.setPlaceholderText(QCoreApplication.translate("window", u"Input underlying asset's current price.", None))
