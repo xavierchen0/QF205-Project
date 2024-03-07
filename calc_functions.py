@@ -116,10 +116,6 @@ def eurput_explicit(S: float, K: float, r: float, sigma: float, T: float, M: int
     return option_price
 
 
-# Test case for european call option
-# Result: Same as QF101 ans apart from some rounding differences
-x = eurcall_explicit(50, 50, 0.1, 0.4, 1, 4, 3)
-print(x)
 
     
     
