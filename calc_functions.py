@@ -115,10 +115,3 @@ def eurput_explicit(S: float, K: float, r: float, sigma: float, T: float, M: int
     
     return option_price
 
-
-
-    
-    
-    
-    
-

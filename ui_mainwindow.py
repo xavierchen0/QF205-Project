@@ -37,9 +37,9 @@ class Ui_window(object):
         current_date = date.today()
         T = (input_date - current_date).days / 365
         
-        if self.in_option_type.currentText() == 'European Call':
+        if self.in_option_type.currentText() == 'Call':
             return calc_functions.eurcall_explicit(S, K, r, sigma, T, M, N)
-        elif self.in_option_type.currentText() == 'European Put':
+        elif self.in_option_type.currentText() == 'Put':
             return calc_functions.eurput_explicit(S, K, r, sigma, T, M, N)
 
     def _displayresult(self):
