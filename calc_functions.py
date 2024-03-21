@@ -6,13 +6,13 @@ def eurcall_explicit(S: float, K: float, r: float, sigma: float, T: float, M: in
     S: current price of underlying asset,
     K: strike price of option,
     r: annual risk-free interest rate in decimal form,
-    sigma: standard deviation of underlying asset in decimal form,
+    sigma: implied volatility of underlying asset in decimal form,
     T: time to maturity in years,
     M: number of price steps,
     N: number of time steps.
 
     Assumptions:
-    1. S_max < 2 * K
+    1. S_0 < 2 * K
     2. Underlying asset does not pay dividends
     '''
     # Step 1: Calculate the time step, dt, and the price step, ds.
@@ -69,7 +69,7 @@ def eurput_explicit(S: float, K: float, r: float, sigma: float, T: float, M: int
     N: number of time steps.
 
     Assumptions:
-    1. S_max < 2 * K
+    1. S_0 < 2 * K
     2. Underlying asset does not pay dividends
     '''
     # Step 1: Calculate the time step, dt, and the price step, ds.
